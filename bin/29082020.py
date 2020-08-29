@@ -45,3 +45,13 @@ f1(1, y=2)
 #f1(y=2, 1) error point
 #f1(x=1, 2) error point
 
+
+print('|-------------------------------------------------------------------|\n')
+
+def rgb(red=0, green=0, blue=0):
+    return 'rgb({}, {}, {})'.format(red, green, blue)
+
+
+# BEGIN (write your solution here)
+
+# END
