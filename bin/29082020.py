@@ -18,3 +18,15 @@ def greet(name, *arg):
 
 print(greet('Tom', 'Ann'))
 print(greet('Bob'))
+
+print('|-------------------------------------------------------------------|\n')
+
+def bar(length, char1='-', char2='*'):
+    return (char1 + char2) * length + char1
+
+print(bar(5, '-', '*'))
+print(bar(5))
+print(bar(3, '.'))
+print(bar(3, ':', '|'))
+print(bar(3, char2='#'))
+print(bar(char2='$', length=3))
