@@ -30,3 +30,9 @@ print(bar(3, '.'))
 print(bar(3, ':', '|'))
 print(bar(3, char2='#'))
 print(bar(char2='$', length=3))
+
+def f(*args, x=None, y=None):
+    print('args =', args, ', x =', x, ', y =', y)
+
+f(*(1, 2), x='a', *[3, 4], y='b', *(5, 6))
+#args = (1, 2, 3, 4, 5, 6), x = a, y = b
