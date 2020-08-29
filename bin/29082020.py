@@ -36,3 +36,13 @@ def f(*args, x=None, y=None):
 
 f(*(1, 2), x='a', *[3, 4], y='b', *(5, 6))
 #args = (1, 2, 3, 4, 5, 6), x = a, y = b
+
+print('|-------------------------------------------------------------------|\n')
+
+def rgb(red=0, green=0, blue=0):
+    return 'rgb({}, {}, {})'.format(red, green, blue)
+
+
+# BEGIN (write your solution here)
+
+# END
