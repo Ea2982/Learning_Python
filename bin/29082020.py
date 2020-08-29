@@ -12,10 +12,9 @@ fn(1, 'a', None, False)
 
 def greet(name, *arg):
     lst = list((name,) + arg)
-    hi = 'Hello, ' + ' and '.join(lst)
+    hi = 'Hello, ' + ' and '.join(lst) + '!'
     return hi
 
 
 print(greet('Tom', 'Ann'))
-names = ['Tom', 'Ann']
-greet()
+print(greet('Bob'))
