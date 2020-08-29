@@ -7,11 +7,18 @@ fn()
 fn(1, 'a', None, False)
 
 def greet(*arg):
+    print(len(arg))
+    if len(arg) == 0:
+        return None
     lst = list(arg)
-    hi = ' and '.join(lst)
-    print(f'Hello, {hi}')
+    print(len(lst))
 
-greet('Tom', 'Ann')
+    if len(lst) == 0:
+        return
+    hi = 'Hello, ' +  ' and '.join(lst)
+    return hi
+
+print(greet('Tom', 'Ann'))
 names = ['Tom', 'Ann']
-greet(*names)
+greet()
 
