@@ -6,11 +6,12 @@ def fn(*arg):
 fn()
 fn(1, 'a', None, False)
 
-def greet(name, *arg):
-    print((name,) + arg)
-    for n in (name,) + arg:
-        print(f'Hello {n}!')
+def greet(*arg):
+    lst = list(arg)
+    hi = ' and '.join(lst)
+    print(f'Hello, {hi}')
 
 greet('Tom', 'Ann')
 names = ['Tom', 'Ann']
 greet(*names)
+
