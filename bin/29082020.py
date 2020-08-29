@@ -36,3 +36,12 @@ def f(*args, x=None, y=None):
 
 f(*(1, 2), x='a', *[3, 4], y='b', *(5, 6))
 #args = (1, 2, 3, 4, 5, 6), x = a, y = b
+
+def f1(x, y):
+    print(x, y)
+f1(x=1, y=2)
+f1(1, 2)
+f1(1, y=2)
+#f1(y=2, 1) error point
+#f1(x=1, 2) error point
+
