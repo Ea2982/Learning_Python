@@ -139,6 +139,9 @@ def double(fn):
 def multiply_by_five(x):
     return x * 5
 print(double(multiply_by_five)(3))
+
+
+
 def push_and_count(target, *, value):
     target.append(target)
     return len(target)
@@ -147,11 +150,13 @@ def shoot():
     return 'Bang!'
 
 def call_twice(func, *args, **kwargs):
-    return (func(*args, **kwargs), func(*args, **kwargs))
+    r1 = func(*args, **kwargs)
+    r2 = func(*args, **kwargs)
+    return (r1, r2)
 
 
-#print(call_twice(input, 'Enter value: '))
-#print(call_twice(shoot))
+# print(call_twice(print, 'Enter value: '))
+# print(call_twice(shoot))
 print(call_twice(push_and_count, [], value=42))
 
 
