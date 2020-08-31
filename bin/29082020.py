@@ -140,7 +140,7 @@ def multiply_by_five(x):
     return x * 5
 print(double(multiply_by_five)(3))
 
-def call_twice(fn, **kwargs):
-    text = fn('')
+def p_sum(*args):
+    return sum(args)
 
-print(call_twice(input, 'Enter value'))
+print(p_sum(x=1, y=2))
