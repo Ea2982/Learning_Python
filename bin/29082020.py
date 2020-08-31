@@ -53,5 +53,22 @@ def rgb(red=0, green=0, blue=0):
 
 
 # BEGIN (write your solution here)
+def get_colors(*args):
+    colors = {'red': rgb(red=255), 'green': rgb(green=255), 'blue': rgb(blue=255)}
+    return colors
 
-# END
+    # return {
+    #     'red': rgb(red=255),
+    #     'green': rgb(green=255),
+    #     'blue': rgb(blue=255),
+    # }
+
+
+colors = get_colors()
+set(colors.keys()) == {'red', 'green', 'blue'}
+print(colors['red'])
+print(colors['blue'])
+print(colors['green'])
+
+for (i, v) in colors.items():
+    print(f'i: {i} - v: {type(v)}')
