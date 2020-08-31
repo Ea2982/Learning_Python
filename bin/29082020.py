@@ -121,3 +121,21 @@ d = {'a': 1, 'b': False}
 print(updated(d))
 print(updated(d) == d)
 print(updated(d) is d)
+
+
+print('|-------------------------------------------------------------------|\n')
+def call_with_five(fn):
+    return fn(5)
+def add_one(x):
+    return x + 1
+
+print(call_with_five(add_one))
+
+def double(fn):
+    def inner(agr):
+        return fn(fn(agr))
+    return inner
+
+def multiply_by_five(x):
+    return x * 5
+print(double(multiply_by_five)(3))
