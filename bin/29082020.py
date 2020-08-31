@@ -67,11 +67,10 @@ def get_colors(*args):
 colors = get_colors()
 set(colors.keys()) == {'red', 'green', 'blue'}
 print(colors['red'])
-print(colors['blue'])
 print(colors['green'])
-
+print(colors['blue'])
 for (i, v) in colors.items():
-    print(f'i: {i} - v: {type(v)}')
+    print(f'i: {i} - v(type): {type(v)} - v(id): {id(v)}')
 
 
 print('|-------------------------------------------------------------------|\n')
@@ -112,12 +111,13 @@ greet1(**dict(who='Bob'))
 greet1(**{'who': 'Bob'})
 
 def updated(d, **kwargs):
-    res = d
-    print(f'res: {res}')
-    res = kwargs.copy()
-    print(f'res: {res}')
-    # for key, valuse in kwargs.items():
-    #     res[key] = kwargs[key]
+    res = d.copy()
+    res.update(kwargs)
     return res
 d = {'a': 1, 'b': False}
 print(updated(d, a=2, b=True, c=None))
+
+d = {'a': 1, 'b': False}
+print(updated(d))
+print(updated(d) == d)
+print(updated(d) is d)
