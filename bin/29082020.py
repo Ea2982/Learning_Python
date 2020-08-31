@@ -101,3 +101,12 @@ print(type(coords(x=1, **{'y': 2})))
 positional = (2, 3)
 named = dict(ky='b', kz='c')
 print(f1(1, *positional, 4, kx='a' , **named))
+
+def greet1(*, who):
+    print(f'Hello, {who}')
+
+greet1(who='Bob')
+# greet1('Bob') -> Error
+greet1(**dict(who='Bob'))
+# greet1({'who': 'Bob'}) -> Error
+greet1(**{'who': 'Bob'})
