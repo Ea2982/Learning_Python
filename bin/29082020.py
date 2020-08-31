@@ -139,3 +139,11 @@ def double(fn):
 def multiply_by_five(x):
     return x * 5
 print(double(multiply_by_five)(3))
+
+def call_twice(fn, **kwargs):
+    return fn_text(kwargs), fn_text(kwargs)
+
+def fn_text(arg):
+    return arg
+
+print(call_twice(fn_text(5)))
