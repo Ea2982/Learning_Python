@@ -110,3 +110,14 @@ greet1(who='Bob')
 greet1(**dict(who='Bob'))
 # greet1({'who': 'Bob'}) -> Error
 greet1(**{'who': 'Bob'})
+
+def updated(d, **kwargs):
+    res = d
+    print(f'res: {res}')
+    res = kwargs.copy()
+    print(f'res: {res}')
+    # for key, valuse in kwargs.items():
+    #     res[key] = kwargs[key]
+    return res
+d = {'a': 1, 'b': False}
+print(updated(d, a=2, b=True, c=None))
