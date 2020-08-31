@@ -72,3 +72,32 @@ print(colors['green'])
 
 for (i, v) in colors.items():
     print(f'i: {i} - v: {type(v)}')
+
+
+print('|-------------------------------------------------------------------|\n')
+
+def g(**kwargs):
+    return kwargs
+print(g(x=1, y=2, z=None))
+print(type(g(x=1, y=2, z=None)))
+
+def f1(x, y, *args, kx=None, ky=42, **kwargs):
+    return (x, y, args, kx, ky, kwargs)
+
+print(f1(1, 2, 3, 4, kx='a', ky='b', kz='c'))
+print(type(f1(1, 2, 3, 4, kx='a', ky='b', kz='c')))
+
+tmp = (f1(1, 2, 3, 4, kx='a', ky='b', kz='c'))
+for i in tmp:
+    print(f'i: {i} - type(i): {type(i)}')
+
+def coords(x, y):
+    print(type(x))
+    print(type(y))
+    return (x, y)
+print(coords(x=1, **{'y': 2}))
+print(type(coords(x=1, **{'y': 2})))
+
+positional = (2, 3)
+named = dict(ky='b', kz='c')
+print(f1(1, *positional, 4, kx='a' , **named))
