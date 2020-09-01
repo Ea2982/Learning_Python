@@ -16,7 +16,7 @@ y = add_one(10)
 print(y)
 
 
-def memoized(func):
+def memoized1(func):
     dct = dict()
     def inner(x):
         '''inner'''
@@ -27,6 +27,24 @@ def memoized(func):
         print(dct)
         return m_res
     return inner
+def memoized(func):
+    def inner(x):
+        if inner.dict.get(x):
+            inner.dual += 1
+            return inner.dict.get(x)
+        result = func(x)
+        inner.dict.update({x: result})
+        inner.list.append(x)
+        print(inner.dict)
+        print(inner.list)
+        print(inner.dual)
+        return inner.dict.get(x)
+
+    inner.dict = {}
+    inner.list = []
+    inner.dual = 0
+    print(inner.dict)
+    return inner
 
 @memoized
 def f(x):
@@ -34,7 +52,10 @@ def f(x):
     return x * 10
 
 print(f(1))
-# print(f(2))
 print(f(1))
-# print(f(3))
-# print(f(2))
+print(f(1))
+print(f(1))
+print(f(1))
+print(f(1))
+print(f(1))
+print(f(10))
