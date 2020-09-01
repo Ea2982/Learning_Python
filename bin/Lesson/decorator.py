@@ -18,11 +18,14 @@ print(y)
 
 def memoized(func):
     dct = dict()
-
     def inner(x):
-        res = func(x)
-        print('memoized', x, res)
-        return {x, res}
+        '''inner'''
+        m_res = dct.get(x)
+        if m_res is None:
+            m_res = func(x)
+            dct[x] = m_res
+        print(dct)
+        return m_res
     return inner
 
 @memoized
@@ -31,7 +34,7 @@ def f(x):
     return x * 10
 
 print(f(1))
-print(f(2))
+# print(f(2))
 print(f(1))
-print(f(3))
-print(f(2))
+# print(f(3))
+# print(f(2))
