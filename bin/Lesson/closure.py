@@ -89,4 +89,6 @@ def flip(func):
 f = flip(greet)
 print(f('Christian', 'Teodor')) #'Hello, Teodor Christian!')
 from operator import add, mul
-print(map(partial_apply(add, 10), [1, 2, 3]) == [11, 12, 13])
+print(list(map(partial_apply(add, 10), [1, 2, 3],)) == [11, 12, 13])
+print(map(partial_apply(add, 10), [1, 2, 3],))
+
