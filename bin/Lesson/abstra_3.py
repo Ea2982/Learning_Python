@@ -69,22 +69,25 @@ def contains_origin(rectangles):
     p.append(get_quadrant(point2))
     p.append(get_quadrant(point3))
     p.append(get_quadrant(point4))
-    if None in p:
-        return False
-    return True
+    if None not in p:
+        p.sort()
+        if p == [1, 2, 3, 4]:
+            return True
+    return False
+
 p = make_decart_point(-4, 3)
-rectangles = make_rectangle(p, 5, 4)
-print(rectangles)
-print(contains_origin(rectangles))
-rectangles = make_rectangle(p, 5, 2)
-print(rectangles)
-print(contains_origin(rectangles))
-rectangles = make_rectangle(p, 2, 2)
-print(rectangles)
-print(contains_origin(rectangles))
-rectangles = make_rectangle(p, 4, 3)
-print(rectangles)
-print(contains_origin(rectangles))
+rectangles1 = make_rectangle(p, 5, 4)
+print(rectangles1)
+print(contains_origin(rectangles1))
+rectangles2 = make_rectangle(p, 5, 2)
+print(rectangles2)
+print(contains_origin(rectangles2))
+rectangles3 = make_rectangle(p, 2, 2)
+print(rectangles3)
+print(contains_origin(rectangles3))
+rectangles4 = make_rectangle(p, 4, 3)
+print(rectangles4)
+print(contains_origin(rectangles4))
 point = make_decart_point(0, 1)
 rectangles = make_rectangle(point, 4, 5)
 print(rectangles)
