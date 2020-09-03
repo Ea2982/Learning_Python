@@ -24,7 +24,7 @@ def add(rat1, rat2):
     )
 def rat_to_string(rat):
     return f'{get_numer(rat)}/{get_denom(rat)}'
-def sub(ra1, rat2):
+def sub(rat1, rat2):
     return make_rational(
         get_numer(rat1) - get_numer(rat2),
         get_denom(rat1)
