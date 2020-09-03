@@ -30,10 +30,31 @@ print(my_fibonacci(5))
 print(my_fibonacci(5) == fabs(5))
 
 
-def is_odd(num):
+def my_is_odd(num):
     return num % 2 == 1
 
-def is_even(num):
+def my_is_even(num):
     return num % 2 == 0
+
+# lesson
+def is_odd(number):
+    return False if number == 0 else is_even(number - 1)
+
+
+def is_even(number):
+    return True if number == 0 else is_odd(number - 1)
+
+def is_odd(n):
+    if n == 1:
+        return True
+    return is_even(n - 1)
+
+
+def is_even(n):
+    if n == 1:
+        return False
+    return is_odd(n - 1)
+
+
 print(is_odd(42))
 print(is_even(42))
