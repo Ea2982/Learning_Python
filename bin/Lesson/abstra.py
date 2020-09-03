@@ -52,6 +52,7 @@ def make_descartes_point_rad(x, y):
     }
 def get_x(point):
     return point['x']
+
 def get_y(point):
     return point['y']
 print('/' + '-' * 80 + '/\n')
@@ -76,12 +77,27 @@ def get_mid_point_of_segment(segment):
     x2 = get_x(segment['end'])
     y1 = get_y(segment['begin'])
     y2 = get_y(segment['end'])
-    dct = {
-        'x': (x1 + x2) / 2,
-        'y': (y1 + y2) / 2,
-    }
-    print(dct)
-    return dct
+    # dct = {
+    #     'x': (x1 + x2) / 2,
+    #     'y': (y1 + y2) / 2,
+    # }
+    # print(dct)
+    # return dct
+    print(make_descartes_point((x1 + x2) / 2, (y1 + y2) / 2))
+    return make_descartes_point((x1 + x2) / 2, (y1 + y2) / 2)
+
 segment = make_segment(make_descartes_point(3, 2), make_descartes_point(0, 0))
 print(segment)
 get_mid_point_of_segment(segment)
+print(make_descartes_point(1.5, 1))
+print(get_mid_point_of_segment(segment))
+
+print('/' + '-' * 80 + '/\n')
+segment1 = make_segment(make_descartes_point(3, 2), make_descartes_point(0, 0))
+print(
+    make_descartes_point(1.5, 1) == get_mid_point_of_segment(segment1)
+)
+segment2 = make_segment(make_descartes_point(3, 2), make_descartes_point(2,3))
+print(
+    make_descartes_point(2.5, 2.5) == get_mid_point_of_segment(segment2)
+)
