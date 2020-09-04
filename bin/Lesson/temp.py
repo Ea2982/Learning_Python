@@ -1,18 +1,43 @@
-def is_continuous_sequence(lst: list) -> bool:
-    if len(lst) < 2:
-        return False
-
-    lst_next = [i for i in range(len(lst))]
-    first_elem = lst[0]
-    b_lst = list(map(lambda i, j: i == j + first_elem, lst, lst_next))
-    if False in b_lst:
-        return False
-    return True
-
-
-print(is_continuous_sequence([10, 11, 12, 13]) == True)
-print(is_continuous_sequence([-5, -4, -3]) == True)
-print(is_continuous_sequence([10, 11, 12, 14, 15]) == False)
-print(is_continuous_sequence([1, 2, 2, 3]) == False)
-print(is_continuous_sequence([7]))
-print(is_continuous_sequence([]) == False)
+expected = {
+        'name': 'python-package',
+        'meta': {'hidden': True},
+        'type': 'directory',
+        'children': [
+            {'name': 'Makefile', 'meta': {}, 'type': 'file'},
+            {'name': 'README.md', 'meta': {}, 'type': 'file'},
+            {'name': 'dist', 'meta': {}, 'type': 'directory', 'children': []},
+            {
+                'name': 'tests',
+                'meta': {},
+                'type': 'directory',
+                'children':
+                    [{'name': 'test_solution.py', 'meta': {}, 'type': 'file'}],
+            },
+            {'name': 'pyproject.toml', 'meta': {}, 'type': 'file'},
+            {
+                'name': '.venv',
+                'meta': {'owner': 'root', 'hidden': False},
+                'type': 'directory',
+                'children': [{
+                    'name': 'lib',
+                    'meta': {},
+                    'type': 'directory',
+                    'children': [{
+                        'name': 'python3.6',
+                        'meta': {},
+                        'type': 'directory',
+                        'children': [{
+                            'name': 'site-packages',
+                            'meta': {},
+                            'type': 'directory',
+                            'children': [{
+                                'name': 'hexlet-python-package.egg-link',
+                                'meta': {},
+                                'type': 'file',
+                            }],
+                        }],
+                    }],
+                }],
+            },
+        ],
+    }
