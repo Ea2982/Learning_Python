@@ -58,17 +58,26 @@ def flatten(tree):
     walk(tree)
     return result
 
+test_tree = {
+    'name': 'my documents',
+    'type': 'directory',
+    'children': [
+        {'name': 'avatar.jpg', 'meta': {'size': 50}, 'type': 'file'},
+        {'name': 'photo.jpg', 'meta': {'size': 75}, 'type': 'file'},
+    ],
+    'meta': {'hide': False},
+}
+def to_two_size(node):
+    if is_file(node) and get_name(node)[-3:] == 'jpg':
+        meta = copy.deepcopy(get_meta(node))
+        meta['size'] = meta['size'] / 2
+        return mkfile(get_name(node), meta)
+    return node
 
 def compress_images(tree):
-    dir = get_name(tree)
-    print(dir)
-    children = get_children(tree)
-    print(children)
-    b_dir = is_directory(tree)
-    print(b_dir)
-    file = filter(is_file(tree), tree)
-    print(list(file))
-
+    children = list(map(to_two_size, get_children(tree)))
+    tree2 = mkdir(get_name(tree), children, get_meta(tree))
+    return tree2
 
 
 
@@ -80,14 +89,11 @@ tree = mkdir(
     ],
     {'hide': False}
 )
-compress_images(tree)
+print(compress_images(tree))
+print(compress_images(tree) == test_tree)
 
-test_tree = {
-    'name': 'my documents',
-    'type': 'directory',
-    'children': [
-        {'name': 'avatar.jpg', 'meta': {'size': 50}, 'type': 'file'},
-        {'name': 'photo.jpg', 'meta': {'size': 75}, 'type': 'file'},
-    ],
-    'meta': {'hide': False},
-}
+
+
+
+
+
