@@ -99,5 +99,6 @@ def change_owner(node, owner):
 print('/' + '-' * 200 + '/')
 tree = change_owner(tree, 'Leonardo')
 print('/' + '-' * 200 + '/')
-# print(tree)
+print(tree)
+print(get_children(tree)[1])
 print(flatten(tree))
