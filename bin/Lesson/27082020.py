@@ -126,15 +126,17 @@
 # print(next_val)
 
 
-
 def add_underscores(understroke):
     def decor(fn):
         def wrapper(name):
             s = f'_{fn(name)}_'
             s += '\n' + understroke
             return s
+
         return wrapper
+
     return decor
+
 
 @add_underscores('===')
 def hello(name):
@@ -143,13 +145,14 @@ def hello(name):
 
 print(hello('test'))
 
-
 import functools
+
 
 @functools.lru_cache(maxsize=None)
 def square(n):
     print('here')
     return n ** 2
+
 
 print(square(4))
 print(square(4))

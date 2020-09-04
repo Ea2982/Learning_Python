@@ -1,5 +1,6 @@
 from functools import wraps
 
+
 def memoized(limit):
     '''memoized'''
 
@@ -25,24 +26,28 @@ def memoized(limit):
             # print(lst)
 
             return m_res
+
         return inner
+
     return wrapper
+
 
 @memoized(3)
 def f(x):
     print('Calculating...')
     return x * 10
 
+
 args = list()
+
 
 @memoized(3)
 def inc(arg):
     args.append(arg)
     return arg + 1
 
+
 print(args)
-
-
 
 # print(f(1))
 # print(f(1))
@@ -50,4 +55,3 @@ print(args)
 # print(f(3))
 # print(f(4))
 # print(f(1))
-

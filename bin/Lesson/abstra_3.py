@@ -1,5 +1,6 @@
 import math
 
+
 def make_decart_point(x, y):
     return {"x": x, "y": y}
 
@@ -27,6 +28,7 @@ def get_quadrant(point):
 
     return None
 
+
 def make_rectangle(point, width, height):
     return {
         'start_point': point,
@@ -34,14 +36,18 @@ def make_rectangle(point, width, height):
         'height': height,
     }
 
+
 def get_width(rectangles):
     return rectangles['width']
+
 
 def get_height(rectangles):
     return rectangles['height']
 
+
 def get_start_point(rectangles):
     return rectangles['start_point']
+
 
 def contains_origin(rectangles):
     w = get_width(rectangles)
@@ -75,6 +81,7 @@ def contains_origin(rectangles):
             return True
     return False
 
+
 p = make_decart_point(-4, 3)
 rectangles1 = make_rectangle(p, 5, 4)
 print(rectangles1)
@@ -92,5 +99,3 @@ point = make_decart_point(0, 1)
 rectangles = make_rectangle(point, 4, 5)
 print(rectangles)
 print(contains_origin(rectangles))
-
-

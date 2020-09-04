@@ -17,11 +17,12 @@ def get_numer(rat):
 def get_denom(rat):
     return rat['denom']
 
+
 def add(rat1, rat2):
     if get_denom(rat1) == get_denom(rat2):
         res = make_rational(
-        get_numer(rat1) + get_numer(rat2),
-        get_denom(rat1)
+            get_numer(rat1) + get_numer(rat2),
+            get_denom(rat1)
         )
     else:
         res = make_rational(
@@ -30,8 +31,11 @@ def add(rat1, rat2):
         )
     return res
 
+
 def rat_to_string(rat):
     return f'{get_numer(rat)}/{get_denom(rat)}'
+
+
 def sub(rat1, rat2):
     if get_denom(rat1) == get_denom(rat2):
         res = make_rational(
@@ -63,6 +67,3 @@ rat5 = make_rational(-4, 16)
 rat6 = make_rational(12, 5)
 print(rat_to_string(add(rat5, rat6)))
 print(rat_to_string(sub(rat5, rat6)))
-
-
-

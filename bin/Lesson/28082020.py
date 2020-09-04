@@ -108,7 +108,6 @@ print(d)
 d = collect_indexes('hello')
 print(d)
 
-
 '''SET'''
 print('SET')
 s = set()
@@ -133,9 +132,11 @@ s = set('')
 print(s)
 print(type(s))
 
+
 def all_unique(data):
     items = list(data)
     return len(items) == len(set(items))
+
 
 def all_unique_old(data):
     i = iter(data)
@@ -166,6 +167,7 @@ def all_unique_old(data):
     #     return False
     # return len(set(data)) == len(data)
 
+
 # i = iter([])
 # print()
 # i = list(i)
@@ -188,7 +190,7 @@ print(all_unique(iter([1])))
 #
 # print(all_unique([]))
 # print(all_unique('cat'))
-#print(all_unique('lol'))
+# print(all_unique('lol'))
 print([1, 2, 3])
 print(all_unique([1, 2, 3]))
 print([1, 2, 1])
@@ -215,13 +217,15 @@ print("s2 ", s2)
 READ_ONLY = 'read_only'
 flags = set()
 
-def toggle(name, flags:set):
+
+def toggle(name, flags: set):
     if name in flags:
         flags.discard(name)
     else:
         flags.add(name)
 
-def toggled(name, flags:set):
+
+def toggled(name, flags: set):
     l_flags = flags.copy()
     print(l_flags)
     if name in l_flags:
@@ -229,6 +233,7 @@ def toggled(name, flags:set):
     else:
         l_flags.add(name)
     return l_flags
+
 
 a, b, c = 'abc'
 
@@ -250,12 +255,15 @@ print(set(['d', 'o', 'd', 'o']) == set('Dodo'))
 print(set('terror'), set('torero'))
 
 print('-----------------------------------------------------------------\n')
-def diff_keys(old_dict:dict, new_dict:dict) -> dict:
+
+
+def diff_keys(old_dict: dict, new_dict: dict) -> dict:
     res_dict = dict()
     res_dict['kept'] = set(old_dict) & set(new_dict)
     res_dict['added'] = set(new_dict) - set(old_dict)
     res_dict['removed'] = set(old_dict) - set(new_dict)
     return res_dict
+
 
 print(diff_keys({'name': 'Bob', 'age': 42}, {}), '\n\n')
 
