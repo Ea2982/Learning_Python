@@ -57,6 +57,13 @@ def flatten(tree):
 
     walk(tree)
     return result
+def dfg(node):
+    print(get_name(node))
+    if is_file(node):
+        return
+
+    children = get_children(node)
+    list(map(dfg, children))
 
 def downcase_file_names(node):
     name = get_name(node).lower()
@@ -83,6 +90,86 @@ tree = mkdir('/', [
     ]),
 mkfile('HOSTS'),
 ])
-new_tree = downcase_file_names(tree)
-new_file = get_children(new_tree)[1]
-print(get_name(new_file) == 'hosts')
+print('/' + '-' * 200 + '/')
+print(tree)
+print(downcase_file_names(tree))
+print(tree)
+# new_tree = downcase_file_names(tree)
+# print(tree)
+# new_file = get_children(new_tree)[1]
+# print(new_tree)
+# print(get_name(new_file) == 'hosts')
+print('/' + '-' * 200 + '/')
+def test_be_immutable():
+    tree = mkdir('/', [
+        mkdir('eTc', [
+            mkdir('NgiNx', [], {'size': 4000}),
+            mkdir(
+                'CONSUL',
+                [mkfile('config.JSON', {'uid': 0})],
+            ),
+        ]),
+        mkfile('hOsts'),
+    ])
+    original = copy.deepcopy(tree)
+    downcase_file_names(tree)
+    print(tree == original)
+    print(original)
+    print(tree)
+    # dfg(original)
+    # dfg(downcase_file_nam/es(tree))
+# test_be_immutable()
+print('/' + '-' * 200 + '/')
+
+
+def test_downcase_file_names():
+    tree = mkdir('/', [
+        mkdir('eTc', [
+            mkdir('NgiNx', [], {'size': 4000}),
+            mkdir(
+                'CONSUL',
+                [mkfile('config.JSON', {'uid': 0})],
+            ),
+        ]),
+        mkfile('hOsts'),
+    ])
+
+    expected = {
+        'name': '/',
+        'meta': {},
+        'type': 'directory',
+        'children': [
+            {
+                'name': 'eTc',
+                'meta': {},
+                'type': 'directory',
+                'children': [
+                    {
+                        'name': 'NgiNx',
+                        'meta': {'size': 4000},
+                        'type': 'directory',
+                        'children': [],
+                    },
+                    {
+                        'name': 'CONSUL',
+                        'meta': {},
+                        'type': 'directory',
+                        'children': [
+                            {
+                                'name': 'config.json',
+                                'type': 'file',
+                                'meta': {'uid': 0},
+                            },
+                        ],
+                    },
+                ],
+            },
+
+        ],
+    }
+    print(expected)
+    print(downcase_file_names(tree))
+    print(downcase_file_names(tree) == expected)
+
+# test_downcase_file_names()
+print('/' + '-' * 200 + '/')
