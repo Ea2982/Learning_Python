@@ -110,8 +110,23 @@ def flatten(tree):
 
     walk(tree)
     return result
-def du(tree):
-    return
+def get_files_sizes(node):
+    meta = get_meta(node)
+
+    if is_file(node):
+        return meta['size']
+
+    children = get_children(node)
+    descendant_counts = list(map(get_files_sizes, children))
+    return sum(descendant_counts)
+
+def du(node):
+    meta = get_meta(node)
+    children = get_children(node)
+    result = map(
+        lambda child: (get_name(child), get_files_sizes(child)), children
+    )
+    return list(result)
 
 tree = mkdir('/', [
     mkdir('etc', [
