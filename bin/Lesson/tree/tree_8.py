@@ -170,7 +170,6 @@ def find_files_by_name(tree, file_find):
         children = get_children(node)
         if is_file(node):
             if file_find in name:
-                print("kjkjnknkj ", os.path.join(path, name))
                 return os.path.join(path, name)
             else:
                 return []
@@ -181,10 +180,8 @@ def find_files_by_name(tree, file_find):
             lambda dir: iter(dir, path),
             children
         )
-        # print(list(result))
-
         return flatten(result)
-    return iter(tree, file_find)
+    return iter(tree, '')
 
 tree = mkdir('/', [
     mkdir('etc', [
