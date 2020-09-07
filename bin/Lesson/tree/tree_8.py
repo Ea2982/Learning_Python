@@ -168,7 +168,6 @@ def find_files_by_name(tree, file_find):
     def iter(node, path):
         name = get_name(node)
         children = get_children(node)
-        path = os.path.join(path, name)
         if is_file(node):
             if file_find in name:
                 print("kjkjnknkj ", os.path.join(path, name))
@@ -176,7 +175,8 @@ def find_files_by_name(tree, file_find):
             else:
                 return []
 
-
+        path = os.path.join(path, name)
+        print(os.path.normpath(path))
         result = map(
             lambda dir: iter(dir, path),
             children
