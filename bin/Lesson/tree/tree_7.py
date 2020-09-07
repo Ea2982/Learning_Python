@@ -47,10 +47,87 @@ def get_subdirectories_info(node):
         filtered,
     )
     return list(result)
-    
-
-То есть мы обратились к детям напрямую сначала отфильтровав их, а затем выполнили отображение на необходимый массив, содержащий для каждой директории имя и количество файлов в нем.
-
+'''
+#То есть мы обратились к детям напрямую сначала отфильтровав их, а затем выполнили отображение на необходимый массив, содержащий для каждой директории имя и количество файлов в нем.
 
 
+
+import copy
+
+
+def mkfile(name, meta={}):
+    '''Return file node.'''
+    return {
+        'name': name,
+        'meta': meta,
+        'type': 'file',
+    }
+
+
+def mkdir(name, children=[], meta={}):
+    '''Return directory node.'''
+    return {
+        'name': name,
+        'children': children,
+        'meta': meta,
+        'type': 'directory',
+    }
+
+
+def is_directory(node):
+    '''Check is node a directory.'''
+    return node.get('type') == 'directory'
+
+
+def is_file(node):
+    '''Check is node a file.'''
+    return node.get('type') == 'file'
+
+
+def get_children(directory):
+    '''Return children of node.'''
+    return directory.get('children')
+
+def get_meta(node):
+    '''Return meta of node.'''
+    return node.get('meta')
+
+
+def get_name(node):
+    '''Return name of node.'''
+    return node.get('name')
+
+
+def flatten(tree):
+    result = []
+
+    def walk(subtree):
+        for item in subtree:
+            if isinstance(item, list):
+                walk(item)
+            else:
+                result.append(item)
+
+    walk(tree)
+    return result
+def du(tree):
+    return
+
+tree = mkdir('/', [
+    mkdir('etc', [
+        mkdir('apache'),
+        mkdir('nginx', [
+            mkfile('nginx.conf', {'size': 800}),
+        ]),
+        mkdir('consul', [
+            mkfile('.config.json', {'size': 1200}),
+            mkfile('data', {'size': 8200}),
+            mkfile('raft', {'size': 80}),
+        ]),
+    ]),
+    mkfile('hosts', {'size': 3500}),
+    mkfile('resolve', {'size': 1000}),
+])
+print(du(tree))
+print(du(tree) == [('etc', 10280), ('hosts', 3500), ('resolve', 1000)])
 

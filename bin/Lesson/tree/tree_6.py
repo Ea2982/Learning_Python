@@ -54,7 +54,6 @@ https://repl.it/@hexlet/python-trees-aggregation-get-nodes-count
 
 '''
 
-
 import copy
 
 
